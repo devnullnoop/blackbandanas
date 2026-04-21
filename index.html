@@ -128,6 +128,16 @@
     font-size: 44px;
     fill: var(--gold);
   }
+  .circular-text-svg .cluster-dot {
+    fill: var(--gold);
+    opacity: 0.55;
+  }
+  .circular-text-svg .cluster-line {
+    stroke: var(--gold);
+    stroke-width: 0.9;
+    opacity: 0.3;
+    fill: none;
+  }
 
   .bandanas-container {
     width: 76%;
@@ -288,9 +298,21 @@
         <textPath href="#bottomArc" startOffset="50%" text-anchor="middle">BANDANAS</textPath>
       </text>
 
-      <!-- Star dividers at 9 and 3 o'clock (path start/end points) -->
-      <text class="ornament-star" x="95" y="415" text-anchor="middle">✦</text>
-      <text class="ornament-star" x="705" y="415" text-anchor="middle">✦</text>
+      <!-- Star clusters at 9 and 3 o'clock: main ✦ flanked by small companion dots and hairline connectors, reads as constellation up close -->
+      <g class="star-cluster left">
+        <path class="cluster-line" d="M 55 378 L 40 422 L 68 465 L 95 415 M 55 378 L 95 415"/>
+        <circle class="cluster-dot" cx="55" cy="378" r="2.4"/>
+        <circle class="cluster-dot" cx="40" cy="422" r="2"/>
+        <circle class="cluster-dot" cx="68" cy="465" r="2.2"/>
+        <text class="ornament-star" x="95" y="415" text-anchor="middle">✦</text>
+      </g>
+      <g class="star-cluster right">
+        <path class="cluster-line" d="M 745 378 L 760 422 L 732 465 L 705 415 M 745 378 L 705 415"/>
+        <circle class="cluster-dot" cx="745" cy="378" r="2.4"/>
+        <circle class="cluster-dot" cx="760" cy="422" r="2"/>
+        <circle class="cluster-dot" cx="732" cy="465" r="2.2"/>
+        <text class="ornament-star" x="705" y="415" text-anchor="middle">✦</text>
+      </g>
     </svg>
 
     <div class="glow-ring"></div>
@@ -308,7 +330,7 @@
   <div class="subtitle-section">
     <div class="ornament-line"><span>✦ &nbsp; ✦ &nbsp; ✦</span></div>
     <div class="tagline">What needs doing gets done.</div>
-    <div class="tagline-sub">Get it done &nbsp;·&nbsp; No matter what</div>
+    <div class="tagline-sub">We ride past the context window.</div>
     <div class="ornament-line"><span>Coming Soon</span></div>
     <a class="contact-email" href="mailto:jason@blackbandanas.com">jason@blackbandanas.com</a>
   </div>
