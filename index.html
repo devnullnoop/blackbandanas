@@ -282,15 +282,23 @@ get
     animation: fadeIn 1s ease-out 0.2s forwards;
   }
 
-  .wanted-banner {
+  .masthead {
     font-family: 'Rye', serif;
-    font-size: clamp(3.4rem, 11vw, 5.8rem);
+    font-size: clamp(3rem, 11vw, 5.6rem);
     color: #1a0d06;
-    letter-spacing: 0.08em;
     text-align: center;
-    line-height: 0.95;
-    margin: 6px 0 18px;
-    text-shadow: 0 1px 0 rgba(255,255,255,0.12), 0 -1px 0 rgba(0,0,0,0.18);
+    line-height: 0.9;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.1), 0 -1px 0 rgba(0,0,0,0.22);
+  }
+  .masthead.top {
+    letter-spacing: 0.32em;
+    margin: 4px 0 8px;
+    text-indent: 0.32em;
+  }
+  .masthead.bottom {
+    letter-spacing: 0.08em;
+    margin: 8px 0 8px;
+    text-indent: 0.08em;
   }
 
   .wanted-poster .circular-text-svg text { fill: #1a0d06; }
@@ -330,7 +338,7 @@ get
     .side-mark { display: none; }
     main { padding: 50px 16px 70px; }
     .wanted-poster { padding: 24px 18px 20px; transform: none; }
-    .wanted-banner { margin: 4px 0 12px; }
+    .masthead { font-size: clamp(2.6rem, 14vw, 4.4rem); }
   }
 </style>
 </head>
@@ -347,7 +355,7 @@ get
 
 <main>
   <div class="wanted-poster">
-  <div class="wanted-banner">WANTED</div>
+  <div class="masthead top">BLACK</div>
   <div class="logo-composition">
     <svg class="circular-text-svg" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
       <defs>
@@ -365,14 +373,6 @@ get
       <circle cx="400" cy="400" r="378" fill="none" stroke="#1a0d06" stroke-width="5" />
       <circle cx="400" cy="400" r="365" fill="none" stroke="#1a0d06" stroke-width="1.2" />
       
-      <text>
-        <textPath href="#topArc" startOffset="50%" text-anchor="middle">BLACK</textPath>
-      </text>
-      
-      <text>
-        <textPath href="#bottomArc" startOffset="50%" text-anchor="middle">BANDANAS</textPath>
-      </text>
-
       <!-- Star clusters at 9 and 3 o'clock: main ✦ flanked by small companion dots and hairline connectors, reads as constellation up close -->
       <g class="star-cluster left">
         <path class="cluster-line" d="M 55 378 L 40 422 L 68 465 L 95 415 M 55 378 L 95 415"/>
@@ -401,6 +401,7 @@ get
       </svg>
     </div>
   </div>
+  <div class="masthead bottom">BANDANAS</div>
 
   <div class="subtitle-section">
     <div class="ornament-line"><span>✦ &nbsp; ✦ &nbsp; ✦</span></div>
