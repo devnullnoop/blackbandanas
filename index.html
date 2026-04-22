@@ -1,3 +1,4 @@
+get
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -258,10 +259,78 @@
     50% { opacity: 1; }
   }
 
+  /* Wanted poster — parchment pinned on the wall */
+  .wanted-poster {
+    position: relative;
+    width: min(620px, 92vw);
+    padding: 34px 34px 28px;
+    background:
+      radial-gradient(circle at 15% 22%, rgba(60, 40, 20, 0.14), transparent 12%),
+      radial-gradient(circle at 88% 12%, rgba(40, 20, 10, 0.12), transparent 10%),
+      radial-gradient(circle at 92% 82%, rgba(60, 40, 20, 0.15), transparent 14%),
+      radial-gradient(circle at 8% 76%, rgba(40, 20, 10, 0.10), transparent 12%),
+      radial-gradient(ellipse at center, transparent 55%, rgba(40, 20, 10, 0.22) 100%),
+      linear-gradient(145deg, #d4c5a9 0%, #c9b796 50%, #b8a079 100%);
+    border: 3px solid #1a0d06;
+    box-shadow:
+      inset 0 0 0 7px #c9b796,
+      inset 0 0 0 8px #1a0d06,
+      0 30px 60px rgba(0, 0, 0, 0.85),
+      0 10px 20px rgba(0, 0, 0, 0.55);
+    transform: rotate(-0.45deg);
+    opacity: 0;
+    animation: fadeIn 1s ease-out 0.2s forwards;
+  }
+
+  .wanted-banner {
+    font-family: 'Rye', serif;
+    font-size: clamp(3.4rem, 11vw, 5.8rem);
+    color: #1a0d06;
+    letter-spacing: 0.08em;
+    text-align: center;
+    line-height: 0.95;
+    margin: 6px 0 18px;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.12), 0 -1px 0 rgba(0,0,0,0.18);
+  }
+
+  .wanted-poster .circular-text-svg text { fill: #1a0d06; }
+  .wanted-poster .circular-text-svg .ornament-star { fill: #3a2412; opacity: 0.85; }
+  .wanted-poster .circular-text-svg .cluster-dot { fill: #3a2412; opacity: 0.75; }
+  .wanted-poster .circular-text-svg .cluster-line { stroke: #3a2412; opacity: 0.5; }
+
+  .wanted-poster .glow-ring {
+    background: radial-gradient(circle, rgba(60, 40, 20, 0.18) 0%, transparent 60%);
+    animation: none;
+    opacity: 0.6;
+  }
+  .wanted-poster .bandanas-container {
+    filter: drop-shadow(0 10px 16px rgba(0,0,0,0.38));
+  }
+
+  .wanted-poster .contact-email {
+    color: #2a1a0d;
+    border-bottom-color: rgba(26, 13, 6, 0.4);
+    margin-top: 18px;
+  }
+  .wanted-poster .contact-email:hover {
+    color: #1a0d06;
+    border-bottom-color: #1a0d06;
+  }
+  .wanted-poster .tagline { color: #2a1a0d; }
+  .wanted-poster .tagline-sub { color: #5a3a1e; opacity: 1; }
+  .wanted-poster .ornament-line span { color: #5a3a1e; }
+  .wanted-poster .ornament-line::before,
+  .wanted-poster .ornament-line::after {
+    background: linear-gradient(90deg, transparent, #5a3a1e, transparent);
+    opacity: 0.7;
+  }
+
   @media (max-width: 640px) {
     .circular-text-svg text { font-size: 56px; letter-spacing: 0.15em; }
     .side-mark { display: none; }
     main { padding: 50px 16px 70px; }
+    .wanted-poster { padding: 24px 18px 20px; transform: none; }
+    .wanted-banner { margin: 4px 0 12px; }
   }
 </style>
 </head>
@@ -277,6 +346,8 @@
 <span class="side-mark right">All &nbsp;·&nbsp; Roads</span>
 
 <main>
+  <div class="wanted-poster">
+  <div class="wanted-banner">WANTED</div>
   <div class="logo-composition">
     <svg class="circular-text-svg" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
       <defs>
@@ -289,6 +360,10 @@
         <!-- For bottom text to read upright, we need the path going LEFT-TO-RIGHT across the bottom -->
         <path id="bottomArc" d="M 105,400 A 295,295 0 0,0 695,400" fill="none"/>
       </defs>
+
+      <!-- Framed medallion ring, like a real wanted poster -->
+      <circle cx="400" cy="400" r="378" fill="none" stroke="#1a0d06" stroke-width="5" />
+      <circle cx="400" cy="400" r="365" fill="none" stroke="#1a0d06" stroke-width="1.2" />
       
       <text>
         <textPath href="#topArc" startOffset="50%" text-anchor="middle">BLACK</textPath>
@@ -329,16 +404,11 @@
 
   <div class="subtitle-section">
     <div class="ornament-line"><span>✦ &nbsp; ✦ &nbsp; ✦</span></div>
-    <div class="tagline">What needs doing gets done.</div>
     <div class="tagline-sub">We ride past the context window.</div>
-    <div class="ornament-line"><span>Coming Soon</span></div>
     <a class="contact-email" href="mailto:jason@blackbandanas.com">jason@blackbandanas.com</a>
   </div>
+  </div>
 </main>
-
-<div class="border-strip bottom">
-  <span class="ornament">✦ &nbsp; Honor &nbsp; ✦ &nbsp; Grit &nbsp; ✦ &nbsp; Quiet Menace &nbsp; ✦</span>
-</div>
 
 </body>
 </html>
