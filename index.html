@@ -20,7 +20,27 @@ get
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   html, body {
-    background: var(--bg);
+    background-color: #241a11;
+    background-image:
+      repeating-linear-gradient(0deg,
+        rgba(0,0,0,0.9) 0 1px,
+        rgba(255,255,255,0.04) 1px 2px,
+        transparent 2px 132px),
+      repeating-linear-gradient(0deg,
+        rgba(0,0,0,0.05) 0 1px,
+        transparent 1px 3px,
+        rgba(0,0,0,0.03) 4px 5px,
+        transparent 5px 12px),
+      radial-gradient(ellipse 52px 26px at 22% 18%, rgba(0,0,0,0.42), transparent 70%),
+      radial-gradient(ellipse 38px 18px at 78% 62%, rgba(0,0,0,0.35), transparent 70%),
+      radial-gradient(ellipse 58px 28px at 14% 82%, rgba(0,0,0,0.32), transparent 70%),
+      radial-gradient(ellipse 32px 16px at 88% 28%, rgba(0,0,0,0.28), transparent 70%),
+      repeating-linear-gradient(0deg,
+        #2a1e13 0 132px,
+        #2f2217 132px 264px,
+        #281c12 264px 396px,
+        #332518 396px 528px);
+    background-attachment: fixed;
     color: var(--paper);
     font-family: 'IM Fell English', serif;
     overflow-x: hidden;
