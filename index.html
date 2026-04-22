@@ -286,20 +286,59 @@ get
     font-family: 'Rye', serif;
     font-size: clamp(3rem, 11vw, 5.6rem);
     color: #1a0d06;
-    text-align: center;
     line-height: 0.9;
+    display: flex;
+    justify-content: center;
     text-shadow: 0 1px 0 rgba(255,255,255,0.1), 0 -1px 0 rgba(0,0,0,0.22);
   }
-  .masthead.top {
-    letter-spacing: 0.32em;
-    margin: 4px 0 8px;
-    text-indent: 0.32em;
+  .masthead.top { margin: 2px 0 2px; }
+  .masthead.top span { letter-spacing: 0.32em; margin-right: -0.32em; }
+  .masthead.bottom { margin: 2px 0 6px; }
+  .masthead.bottom span { letter-spacing: 0.08em; margin-right: -0.08em; }
+
+  .wanted-poster .masthead-rule {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 4px auto;
+    width: 90%;
+    max-width: 560px;
   }
-  .masthead.bottom {
-    letter-spacing: 0.08em;
-    margin: 8px 0 8px;
-    text-indent: 0.08em;
+  .wanted-poster .masthead-rule::before,
+  .wanted-poster .masthead-rule::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #1a0d06 25%, #1a0d06 75%, transparent);
+    opacity: 0.55;
   }
+  .wanted-poster .masthead-rule span {
+    padding: 0 14px;
+    color: #1a0d06;
+    font-size: 0.95rem;
+    font-family: 'Rye', serif;
+    opacity: 0.75;
+  }
+
+  .wanted-poster .corner {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    pointer-events: none;
+    opacity: 0.85;
+  }
+  .wanted-poster .corner::before,
+  .wanted-poster .corner::after {
+    content: '';
+    position: absolute;
+    background: #1a0d06;
+  }
+  .wanted-poster .corner::before { inset: 0 0 auto 0; height: 2px; }
+  .wanted-poster .corner::after  { inset: 0 auto 0 0; width: 2px; }
+  .wanted-poster .corner.tr { top: 10px; right: 10px; transform: scaleX(-1); }
+  .wanted-poster .corner.tl { top: 10px; left: 10px; }
+  .wanted-poster .corner.br { bottom: 10px; right: 10px; transform: scale(-1, -1); }
+  .wanted-poster .corner.bl { bottom: 10px; left: 10px; transform: scaleY(-1); }
 
   .wanted-poster .circular-text-svg text { fill: #1a0d06; }
   .wanted-poster .circular-text-svg .ornament-star { fill: #3a2412; opacity: 0.85; }
@@ -355,7 +394,10 @@ get
 
 <main>
   <div class="wanted-poster">
-  <div class="masthead top">BLACK</div>
+  <span class="corner tl"></span><span class="corner tr"></span>
+  <span class="corner bl"></span><span class="corner br"></span>
+  <div class="masthead top"><span>BLACK</span></div>
+  <div class="masthead-rule"><span>✦</span></div>
   <div class="logo-composition">
     <svg class="circular-text-svg" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
       <defs>
@@ -369,9 +411,10 @@ get
         <path id="bottomArc" d="M 105,400 A 295,295 0 0,0 695,400" fill="none"/>
       </defs>
 
-      <!-- Framed medallion ring, like a real wanted poster -->
-      <circle cx="400" cy="400" r="378" fill="none" stroke="#1a0d06" stroke-width="5" />
-      <circle cx="400" cy="400" r="365" fill="none" stroke="#1a0d06" stroke-width="1.2" />
+      <!-- Framed medallion, engraved triple rule -->
+      <circle cx="400" cy="400" r="384" fill="none" stroke="#1a0d06" stroke-width="5" />
+      <circle cx="400" cy="400" r="372" fill="none" stroke="#1a0d06" stroke-width="5" />
+      <circle cx="400" cy="400" r="363" fill="none" stroke="#1a0d06" stroke-width="1.2" />
       
       <!-- Star clusters at 9 and 3 o'clock: main ✦ flanked by small companion dots and hairline connectors, reads as constellation up close -->
       <g class="star-cluster left">
@@ -401,7 +444,8 @@ get
       </svg>
     </div>
   </div>
-  <div class="masthead bottom">BANDANAS</div>
+  <div class="masthead-rule"><span>✦</span></div>
+  <div class="masthead bottom"><span>BANDANAS</span></div>
 
   <div class="subtitle-section">
     <div class="ornament-line"><span>✦ &nbsp; ✦ &nbsp; ✦</span></div>
